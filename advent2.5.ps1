@@ -1,4 +1,4 @@
-$data = import-csv 2input.txt -Delimiter " " -Header $('Direction', 'Count')
+$data = import-csv .\2input.txt -Delimiter " " -Header $('Direction', 'Count')
 $horiz = 0
 $vert = 0
 $aim = 0
@@ -8,14 +8,14 @@ foreach($move in $data)
     if($move.Direction -eq "forward")
     {
         $horiz += $move.Count
-        $vert += $aim * $move.Count
+        $vert += ($aim * $move.Count)
     }
     elseif ($move.Direction -eq "down") {
-        $vert += $move.Count
+        #$vert += $move.Count
         $aim += $move.count
     }
     else {
-        $vert -= $move.count
+        #$vert -= $move.count
         $aim -= $move.count
     }
     
